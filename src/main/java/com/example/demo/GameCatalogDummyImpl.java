@@ -9,11 +9,13 @@ import java.util.Collection;
 @Service
 public class GameCatalogDummyImpl implements GameCatalog {
     TicTacToeGameFactory test = new TicTacToeGameFactory();
+    TicTacToeGameFactory test2 = new TicTacToeGameFactory();
 
     @Override
     public Collection<String> getGameIdentifiers() {
         Collection<String> myCollec = new ArrayList<>();
         myCollec.add(test.getGameId());
+        myCollec.add(test2.getGameId());
         return myCollec;
     }
 }
