@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.game;
 
 import fr.le_campus_numerique.square_games.engine.tictactoe.TicTacToeGameFactory;
 import org.springframework.stereotype.Service;

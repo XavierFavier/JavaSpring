@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.heartbeat;
 
 public interface HeartbeatSensor {
     int get();
