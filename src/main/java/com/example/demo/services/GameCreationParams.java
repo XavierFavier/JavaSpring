@@ -1,4 +1,4 @@
-package com.example.demo.game;
+package com.example.demo.services;
 
 public class GameCreationParams {
     String gameType;
