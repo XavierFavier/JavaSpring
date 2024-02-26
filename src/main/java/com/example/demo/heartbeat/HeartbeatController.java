@@ -11,6 +11,7 @@ import java.util.Collection;
 public class HeartbeatController {
     @Autowired
     HeartbeatSensor sensor;
+
     @GetMapping("/heartbeat")
     int getHeartbeat() {
         return 50;
