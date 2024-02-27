@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+//TODO get rid of DTO
 public class MySQLUserDAO implements UserDAO {
 
     private List<User> userList = new ArrayList<>();
