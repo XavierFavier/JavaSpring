@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import com.example.demo.dao.JbdcDao;
 import com.example.demo.dao.MySQLUserDAO;
 import com.example.demo.dao.User;
+import com.example.demo.dao.UserRepository;
 import com.example.demo.dto.GameDto;
 import com.example.demo.dto.TokenDTO;
 import com.example.demo.dto.UserDTO;
@@ -38,39 +39,5 @@ public class GameController {
     @GetMapping("/games")
     public List<String> getGames(@RequestHeader(value = "Accept-Language", required = false) Locale locale) {
         return service.getGames(locale);
-    }
-
-
-    //DAO
-    //private MySQLUserDAO myDAO = new MySQLUserDAO();
-    private JbdcDao myDAO = new JbdcDao();
-
-    @GetMapping("/allUsers")
-    public List<User> getAllUsers() {
-        return myDAO.getAllUsers();
-    }
-
-    @GetMapping("/user")
-    public User getUserById(@RequestParam UUID id) {
-        return myDAO.getUserById(id.toString());
-    }
-
-    @PostMapping("/user")
-    public String addUser(@RequestParam("name") String name) {
-        String id = UUID.randomUUID().toString();
-        myDAO.addUser(id, name);
-        return id;
-    }
-
-    @PutMapping("/user")
-    public void updateUser(@RequestParam String id,
-                           @RequestParam String newID, @RequestParam String newName) {
-
-        myDAO.updateUser(id, newID, newName);
-    }
-
-    @DeleteMapping("/user")
-    public void deleteUser(@RequestParam UUID id) {
-        myDAO.deleteUser(id.toString());
     }
 }

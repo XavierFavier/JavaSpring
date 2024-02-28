@@ -42,8 +42,9 @@ public class JbdcDao {
             int count = 0;
 
             while (result.next()){
-                User user = new User(result.getString(2));
-                user.setId(UUID.fromString(result.getString(1)));
+                User user = new User();
+                user.setName(result.getString(2));
+                user.setUuid(UUID.fromString(result.getString(1)).toString());
                 returnList.add(user);
             }
         } catch(SQLException ex) {
@@ -65,8 +66,9 @@ public class JbdcDao {
             int count = 0;
 
             while (result.next()){
-                User user = new User(result.getString(2));
-                user.setId(UUID.fromString(result.getString(1)));
+                User user = new User();
+                user.setName(result.getString(2));
+                user.setUuid(UUID.fromString(result.getString(1)).toString());
                 return user;
             }
         } catch(SQLException ex) {

@@ -1,21 +1,31 @@
 package com.example.demo.dao;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 import java.util.UUID;
 
+@Entity
 public class User {
-    private UUID id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private int id;
+
+    private String uuid;
+
     private String name;
 
-    public User(String name) {
-        this.name = name;
-        this.id = UUID.randomUUID();
+    public User() {
+
     }
 
-    public UUID getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
-    public void setId(UUID id) {
-        this.id = id;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getName() {return name; }
