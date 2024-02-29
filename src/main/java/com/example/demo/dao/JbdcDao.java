@@ -1,6 +1,6 @@
 package com.example.demo.dao;
 
-import com.example.demo.dao.User;
+import com.example.demo.dao.Users;
 import com.example.demo.dto.UserDTO;
 
 import java.sql.*;
@@ -29,9 +29,9 @@ public class JbdcDao {
         }
     }
 
-    private List<User> userList = new ArrayList<>();
-    public List<User> getAllUsers() {
-        List<User> returnList = new ArrayList<>();
+    private List<Users> userList = new ArrayList<>();
+    public List<Users> getAllUserss() {
+        List<Users> returnList = new ArrayList<>();
 
         String sql = "SELECT * FROM users";
 
@@ -42,7 +42,7 @@ public class JbdcDao {
             int count = 0;
 
             while (result.next()){
-                User user = new User();
+                Users user = new Users();
                 user.setName(result.getString(2));
                 user.setUuid(UUID.fromString(result.getString(1)).toString());
                 returnList.add(user);
@@ -55,7 +55,7 @@ public class JbdcDao {
         return returnList;
     }
 
-    public User getUserById(String id) {
+    public Users getUserById(String id) {
         String sql = "SELECT * FROM users WHERE id=?";
 
         try {
@@ -66,7 +66,7 @@ public class JbdcDao {
             int count = 0;
 
             while (result.next()){
-                User user = new User();
+                Users user = new Users();
                 user.setName(result.getString(2));
                 user.setUuid(UUID.fromString(result.getString(1)).toString());
                 return user;

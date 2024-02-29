@@ -11,14 +11,14 @@ import java.util.UUID;
 //todo: get rid of DTO
 public class MySQLUserDAO implements UserDAO {
 
-    private List<User> userList = new ArrayList<>();
+    private List<Users> userList = new ArrayList<>();
 
-    public List<User> getAllUsers() {
+    public List<Users> getAllUsers() {
         return userList;
     }
 
-    public User getUserById(UUID id) {
-        for(User user : userList) {
+    public Users getUserById(UUID id) {
+        for(Users user : userList) {
             if(user.getUuid().equals(id)) {
                 return user;
             }
@@ -27,13 +27,13 @@ public class MySQLUserDAO implements UserDAO {
     }
 
     public void addUser(UserDTO userDTO) {
-        User user = new User();
+        Users user = new Users();
         user.setName(userDTO.name());
         userList.add(user);
     }
 
     public void updateUser(UUID id, UserDTO userDTO) {
-        for(User user : userList) {
+        for(Users user : userList) {
             if(user.getUuid().equals(id)) {
                 user.setName(userDTO.name());
             }
@@ -41,7 +41,7 @@ public class MySQLUserDAO implements UserDAO {
     }
 
     public void deleteUser(UUID id) {
-        for(User user : userList) {
+        for(Users user : userList) {
             if(user.getUuid().equals(id)) {
                 userList.remove(user);
                 break;

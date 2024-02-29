@@ -1,8 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.dao.JbdcDao;
-import com.example.demo.dao.User;
+import com.example.demo.dao.Users;
 import com.example.demo.dao.UserRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,7 +56,7 @@ public class UserController {
         // @ResponseBody means the returned String is the response, not a view name
         // @RequestParam means it is a parameter from the GET or POST request
 
-        User n = new User();
+        Users n = new Users();
         n.setName(name);
         n.setUuid(UUID.randomUUID().toString());
 
@@ -64,7 +66,7 @@ public class UserController {
     }
 
     @GetMapping(path="/allUsers")
-    public @ResponseBody Iterable<User> getAllUsers() {
+    public @ResponseBody Iterable<Users> getAllUsers() {
         // This returns a JSON or XML with the users
         return userRepository.findAll();
     }

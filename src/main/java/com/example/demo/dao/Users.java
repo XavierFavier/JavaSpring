@@ -8,7 +8,7 @@ import jakarta.persistence.Id;
 import java.util.UUID;
 
 @Entity
-public class User {
+public class Users {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private int id;
@@ -17,7 +17,7 @@ public class User {
 
     private String name;
 
-    public User() {
+    public Users() {
 
     }
 

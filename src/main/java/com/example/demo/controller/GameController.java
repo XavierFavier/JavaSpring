@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.dao.JbdcDao;
 import com.example.demo.dao.MySQLUserDAO;
-import com.example.demo.dao.User;
+import com.example.demo.dao.Users;
 import com.example.demo.dao.UserRepository;
 import com.example.demo.dto.GameDto;
 import com.example.demo.dto.TokenDTO;
