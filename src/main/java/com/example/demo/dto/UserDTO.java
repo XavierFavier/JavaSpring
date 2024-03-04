@@ -2,8 +2,4 @@ package com.example.demo.dto;
 
 import java.util.UUID;
 
-public record UserDTO(
-        UUID id,
-        String name
-) {
-}
+public record UserDTO(UUID id, String name) {}

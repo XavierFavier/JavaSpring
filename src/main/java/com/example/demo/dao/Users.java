@@ -1,13 +1,11 @@
 package com.example.demo.dao;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.UUID;
 
 @Entity
+//@Table(name="users")
 public class Users {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -16,6 +14,8 @@ public class Users {
     private String uuid;
 
     private String name;
+
+    private String password;
 
     public Users() {
 
@@ -31,5 +31,10 @@ public class Users {
     public String getName() {return name; }
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {return password; }
+    public void setPassword(String name) {
+        this.password = password;
     }
 }

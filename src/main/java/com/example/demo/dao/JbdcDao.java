@@ -30,7 +30,7 @@ public class JbdcDao {
     }
 
     private List<Users> userList = new ArrayList<>();
-    public List<Users> getAllUserss() {
+    public List<Users> getAllUsers() {
         List<Users> returnList = new ArrayList<>();
 
         String sql = "SELECT * FROM users";
@@ -65,7 +65,30 @@ public class JbdcDao {
 
             int count = 0;
 
-            while (result.next()){
+            while (result.next()) {
+                Users user = new Users();
+                user.setName(result.getString(2));
+                user.setUuid(UUID.fromString(result.getString(1)).toString());
+                return user;
+            }
+        } catch(SQLException ex) {
+            System.out.println("An error occurred.");
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+    public Users getUserByName(String name) {
+        String sql = "SELECT * FROM users WHERE name=?";
+
+        try {
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, name);
+            ResultSet result = statement.executeQuery();
+
+            int count = 0;
+
+            while (result.next()) {
                 Users user = new Users();
                 user.setName(result.getString(2));
                 user.setUuid(UUID.fromString(result.getString(1)).toString());
