@@ -28,14 +28,14 @@ public class MySQLUserDAO implements UserDAO {
 
     public void addUser(UserDTO userDTO) {
         Users user = new Users();
-        user.setName(userDTO.name());
+        user.setName(userDTO.getName());
         userList.add(user);
     }
 
     public void updateUser(UUID id, UserDTO userDTO) {
         for(Users user : userList) {
             if(user.getUuid().equals(id)) {
-                user.setName(userDTO.name());
+                user.setName(userDTO.getName());
             }
         }
     }
