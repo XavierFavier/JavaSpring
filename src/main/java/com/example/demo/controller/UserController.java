@@ -5,10 +5,13 @@ import com.example.demo.dao.MySQLUserDAO;
 import com.example.demo.dao.Users;
 import com.example.demo.dao.UserRepository;
 import com.example.demo.dto.UserDTO;
+import com.example.demo.security.Roles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +24,8 @@ public class UserController {
     //private MySQLUserDAO myDAO = new MySQLUserDAO();
     private JbdcDao myDAO = new JbdcDao();
 
+    //@Secured("ROLE_USER")
+    //@Secured("ROLE_ADMIN")
     @GetMapping("/allUsers")
     public List<Users> getAllUsers() {
         return myDAO.getAllUsers();

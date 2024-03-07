@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.UUID;
 
 public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
-    static final String secretKey = "myKeysjdhfgjsgfjhsdgfjsgdjfssdkfgjhsdkfjghsdfghsdfhglksdhfgklsdhgflkhsdklfghklshdfgklsdjhfggsjdgfjsg"; // Replace with your own secret key
+    static final private String secretKey = "myKeysjdhfgjsgfjhsdgfjsgdjfssdkfgjhsdkfjghsdfghsdfhglksdhfgklsdhgflkhsdklfghklshdfgklsdjhfggsjdgfjsg"; // Replace with your own secret key
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
@@ -46,6 +46,8 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
             //
             UserDetails userDetails = new UserDTO(UUID.randomUUID(), claims.getSubject());
+
+
             final UsernamePasswordAuthenticationToken
 
                     authentication = new UsernamePasswordAuthenticationToken(userDetails, null, userDetails == null ?
@@ -61,6 +63,8 @@ public class JwtTokenAuthenticationFilter extends OncePerRequestFilter {
 
             System.out.println("logged!");
         }
+
+        //
         filterChain.doFilter(request, response);
     }
 }
