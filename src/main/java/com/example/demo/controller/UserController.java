@@ -31,6 +31,11 @@ public class UserController {
         return myDAO.getAllUsers();
     }
 
+    @GetMapping("/test")
+    public String test() {
+        return "hello!";
+    }
+
     @GetMapping("/user")
     public UserDTO getUserById(@RequestParam String id) {
         Users user = myDAO.getUserById(id);
